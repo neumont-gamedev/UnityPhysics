@@ -14,13 +14,14 @@ public class KinematicCharacter : MonoBehaviour
 		// translation
 		Vector3 direction = Vector3.zero;
 		direction.z = Input.GetAxis("Vertical");
-		// <translate>
+		transform.Translate(direction * speed * Time.deltaTime, isRelative ? Space.Self : Space.World);
+		//transform.position += transform.rotation * direction * speed * Time.deltaTime;
 
 		// rotation
 		float yaw = Input.GetAxis("Horizontal");
-		// <rotate>
-
-
+		transform.Rotate(Vector3.up * yaw * turnRate * Time.deltaTime);
+		//transform.rotation *= Quaternion.AngleAxis(yaw * turnRate * Time.deltaTime, Vector3.up);
+		
 		// draw axis
 		Debug.DrawRay(transform.position, transform.forward * 2, Color.blue);
 		Debug.DrawRay(transform.position, transform.right * 2, Color.red);
