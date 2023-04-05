@@ -751,6 +751,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10edc9e9edbb826449eb54e3676b70ba, type: 3}
+--- !u!4 &1871443326 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2438109937417903152, guid: e9129a7f51b8a9a4c9dec2ab4db05500,
+    type: 3}
+  m_PrefabInstance: {fileID: 2438109939159844018}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1946424643
 GameObject:
   m_ObjectHideFlags: 0
@@ -861,6 +867,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5096465e44579ec4ebd6a77312b90823, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2058643687
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2058643688}
+  m_Layer: 3
+  m_Name: GroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2058643688
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2058643687}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1871443326}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2060779759
 GameObject:
   m_ObjectHideFlags: 0
@@ -1033,10 +1070,45 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2438109937417903155, guid: e9129a7f51b8a9a4c9dec2ab4db05500,
+        type: 3}
+      propertyPath: groundTransform
+      value: 
+      objectReference: {fileID: 2058643688}
+    - target: {fileID: 2438109937417903155, guid: e9129a7f51b8a9a4c9dec2ab4db05500,
+        type: 3}
+      propertyPath: doubleJumpHeight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2438109937417903155, guid: e9129a7f51b8a9a4c9dec2ab4db05500,
+        type: 3}
+      propertyPath: fallRateMultiplier
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2438109937417903155, guid: e9129a7f51b8a9a4c9dec2ab4db05500,
+        type: 3}
+      propertyPath: lowJumpRateMultiplier
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2438109937417903155, guid: e9129a7f51b8a9a4c9dec2ab4db05500,
+        type: 3}
+      propertyPath: groundLayerMask.m_Bits
+      value: 55
+      objectReference: {fileID: 0}
     - target: {fileID: 2438109937417903310, guid: e9129a7f51b8a9a4c9dec2ab4db05500,
         type: 3}
       propertyPath: m_Name
       value: ControllerPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 2438109937417903310, guid: e9129a7f51b8a9a4c9dec2ab4db05500,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2438109938058072211, guid: e9129a7f51b8a9a4c9dec2ab4db05500,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9129a7f51b8a9a4c9dec2ab4db05500, type: 3}
