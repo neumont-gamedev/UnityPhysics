@@ -16,6 +16,9 @@ public class CharacterController2D : MonoBehaviour
 	[SerializeField] Transform groundTransform;
 	[SerializeField] LayerMask groundLayerMask;
 	[SerializeField] float groundRadius;
+	[Header("Attack")]
+	[SerializeField] Transform attackTransform;
+	[SerializeField] float attackRadius;
 
 	Rigidbody2D rb;
 
@@ -50,6 +53,11 @@ public class CharacterController2D : MonoBehaviour
 				velocity.y += Mathf.Sqrt(jumpHeight * -2 * Physics.gravity.y);
 				StartCoroutine(DoubleJump());
 				animator.SetTrigger("Jump");
+			}
+
+			if (Input.GetMouseButtonDown(0))
+			{
+				animator.SetTrigger("Attack");
 			}
 		}
 
@@ -117,5 +125,18 @@ public class CharacterController2D : MonoBehaviour
 	{
 		Gizmos.color = Color.red;
 		Gizmos.DrawSphere(groundTransform.position, groundRadius);
+	}
+
+	private void CheckAttack()
+	{
+		Collider2D[] colliders = Physics2D.OverlapCircleAll(attackTransform.position, attackRadius);
+		foreach (Collider2D collider in colliders)
+		{
+			if (collider.gameObject == gameObject) continue;
+			if (collider.gameObject.TryGetComponent<IDamagable>(out var damagable))
+			{
+				damagable.Damage(10);
+			}
+		}
 	}
 }

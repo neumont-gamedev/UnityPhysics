@@ -4,7 +4,7 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class AIController2D : MonoBehaviour
+public class AIController2D : MonoBehaviour, IDamagable
 {
 	[SerializeField] Animator animator;
 	[SerializeField] SpriteRenderer spriteRenderer;
@@ -21,12 +21,16 @@ public class AIController2D : MonoBehaviour
 	[SerializeField] string enemyTag;
 	[SerializeField] LayerMask raycastLayerMask;
 
+	public float health = 100;
+
+
 	Rigidbody2D rb;
 
 	Vector2 velocity = Vector2.zero;
 	bool faceRight = true;
 	float groundAngle = 0;
 	Transform targetWaypoint = null;
+	GameObject enemy = null;
 
 	enum State
 	{
@@ -36,7 +40,6 @@ public class AIController2D : MonoBehaviour
 		ATTACK
 	}
 
-	GameObject enemy;
 	State state = State.IDLE;
 	float stateTimer = 1;
 
@@ -191,7 +194,11 @@ public class AIController2D : MonoBehaviour
 			enemy = raycastHit.collider.gameObject;
 			Debug.DrawRay(transform.position, ((faceRight) ? Vector2.right : Vector2.left) * rayDistance, Color.red);
 		}
+	}
 
-
+	public void Damage(int damage)
+	{
+		health -= damage;
+		print(health);
 	}
 }
