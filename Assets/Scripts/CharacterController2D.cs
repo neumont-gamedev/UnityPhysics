@@ -33,7 +33,7 @@ public class CharacterController2D : MonoBehaviour
 
 	void Update()
 	{
-		bool onGround = UpdateGroundCheck();
+		bool onGround = UpdateGroundCheck() && (velocity.y <= 0);
 				
 		// get direction input
 		Vector2 direction = Vector2.zero;
